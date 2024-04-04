@@ -74,4 +74,29 @@ body {
     justify-content: center;
 }
 
+.noActiveted {
+    position: absolute;
+    display: none;
+}
+
+#left, #right {
+    font-size: 100px;
+    padding: 10px 20px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+}
+
+#left {
+    position: absolute;
+    bottom: 130px;
+    left: 22rem;
+}
+
+#right {
+    position: absolute;
+    bottom: 130px;
+    right: 20rem;
+}
 
