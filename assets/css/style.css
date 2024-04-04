@@ -1,0 +1,74 @@
+@import url(/assets/css/fonts.css);
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #ACAEB5;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background: linear-gradient(to bottom right, #1D2948, #141D33, #0F1628, #050A16);
+  height: 100vh;
+}
+
+.navBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  margin-top: 30px;
+}
+
+.leftSide, .rightSide {
+  display: flex;
+  justify-content: left;
+  gap: 150px;
+}
+
+#title {
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  letter-spacing: 5px;
+}
+
+.planetTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+  color: #fff;
+  letter-spacing: 17px;
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+}
+
+.planetStats {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-top: 50px;
+}
+
+#infoTitle {
+  color: #767D98;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.info {
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+}
+
+.planetsImage {
+  display: flex;
+  justify-content: center;
+}/*# sourceMappingURL=style.css.map */
