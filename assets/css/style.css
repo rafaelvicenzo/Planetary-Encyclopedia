@@ -21,6 +21,7 @@ body {
   align-items: center;
   gap: 100px;
   margin-top: 30px;
+  margin-right: 20px;
 }
 
 .leftSide, .rightSide {
@@ -62,7 +63,7 @@ body {
   letter-spacing: 1px;
 }
 
-.info {
+.info1, .info2, .info3, .info4, .info5 {
   color: #fff;
   font-family: "Inter", sans-serif;
   font-weight: 300;
@@ -97,4 +98,17 @@ body {
   position: absolute;
   bottom: 130px;
   right: 20rem;
+}
+
+.noActivated {
+  position: absolute;
+  display: none;
+}
+
+#left:hover {
+  color: #ACAEB5;
+}
+
+#right:hover {
+  color: #ACAEB5;
 }/*# sourceMappingURL=style.css.map */
