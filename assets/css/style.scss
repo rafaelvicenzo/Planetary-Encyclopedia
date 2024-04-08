@@ -9,6 +9,8 @@ a {
     text-decoration: none;
     color: #ACAEB5;
     font-family: 'Inter', sans-serif;
+    position: relative;
+    padding: 0 5px;
 }
 
 body {
@@ -25,6 +27,26 @@ body {
     margin-right: 20px;
 }
 
+a:after {
+    content: '';
+  position: absolute;
+  width: 0%; 
+  height: 2px;
+  left: 0;
+  background-color: #fff;
+  border-radius: 10%;
+  bottom: -10px; 
+  transition: 0.3s
+  }
+
+a:hover {
+    color: #fff;
+}
+
+a:hover:after {
+    width: 100%;
+}
+
 .leftSide, .rightSide {
     display: flex;
     justify-content: left;
@@ -37,6 +59,7 @@ body {
     font-weight: 300;
     font-size: 20px;
     letter-spacing: 5px;
+    cursor: pointer;
 }
 
 .planetTitle {
