@@ -138,3 +138,34 @@ a:hover:after {
     color: #ACAEB5;
 }
 
+.slideInRight {
+    animation: slideInRight 1s ease;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(60%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+} 
+.slideInLeft {
+    animation: slideInLeft 1s ease;
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-60%); 
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+} 
+
+
+

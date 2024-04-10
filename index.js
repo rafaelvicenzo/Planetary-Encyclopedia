@@ -57,6 +57,14 @@ document.getElementById("right").addEventListener("click", function() {
         currentImage.classList.add('noActivated');
         nextImage.classList.remove('noActivated');
         nextImage.classList.add('activated');
+        nextImage.classList.remove('slideInLeft');
+        nextImage.classList.add('slideInRight');
+        const infoPlanets = document.querySelectorAll('.infoPlanet');
+        infoPlanets.forEach(infoPlanet => {
+            infoPlanet.classList.remove('slideInRight', 'slideInLeft');
+            void infoPlanet.offsetWidth;
+            infoPlanet.classList.add('slideInRight');
+        });
     }
 
     updatePlanetInfo(nextImage.id);
@@ -72,9 +80,19 @@ document.getElementById("left").addEventListener("click", function() {
         currentImage.classList.add('noActivated');
         previousImage.classList.remove('noActivated');
         previousImage.classList.add('activated');
+        previousImage.classList.remove('slideInRight');
+        previousImage.classList.add('slideInLeft');
+        const infoPlanets = document.querySelectorAll('.infoPlanet');
+        infoPlanets.forEach(infoPlanet => {
+            infoPlanet.classList.remove('slideInRight', 'slideInLeft');
+            void infoPlanet.offsetWidth;
+            infoPlanet.classList.add('slideInLeft');
+        });
     } 
 
     updatePlanetInfo(previousImage.id);
     }
 );
+
+
 
