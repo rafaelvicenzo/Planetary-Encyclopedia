@@ -65,3 +65,29 @@ a:hover:after {
 
 //CRIAR UMA CLASSE COM NAME STARS PARA PODER ADICIONAR AS ESTRELAS
 
+$card-bg: #000;
+$card-title-color: #fff;
+$card-subtitle-color: #ACAEB5;
+$card-group-margin: 92px 90px;
+
+.card {
+background-color: transparent;
+    margin: $card-group-margin;
+}
+
+.card-text, .card-title {
+    color: $card-title-color;
+}
+
+.text-body-secondary {
+    color: $card-subtitle-color !important;
+}
+
+
+
+
+
+
+
+
+

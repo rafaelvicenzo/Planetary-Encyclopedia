@@ -60,4 +60,17 @@ a:hover {
 
 a:hover:after {
   width: 100%;
+}
+
+.card {
+  background-color: transparent;
+  margin: 92px 90px;
+}
+
+.card-text, .card-title {
+  color: #fff;
+}
+
+.text-body-secondary {
+  color: #ACAEB5 !important;
 }/*# sourceMappingURL=exoplanet.css.map */
