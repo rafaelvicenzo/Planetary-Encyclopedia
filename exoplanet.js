@@ -2,19 +2,19 @@
 
 /* API KEY eDcGmc68SHznNH1e1w9QDxnEbcnu3x2JOJnINsa2 */
 
+let exoplanets = [];
+let currentPage = 1;
+const cardsPerPage = 10;
+
 function parseExoplanets(data) {
-    
     if (!data) {
-        
         return [];
     }
     const lines = data.trim().split('\n');
-    
 
     return lines.map(line => {
         const values = line.trim().split(/\s+/).filter(val => val !== '');
         if (values.length !== 50) {
-            
             return null;
         }
         const name = values[1] !== 'null' ? values[1] : null;
@@ -33,15 +33,20 @@ function parseExoplanets(data) {
     }).filter(exoplanet => exoplanet !== null);
 }
 
-function populateCardGroup(exoplanets) {
+function populateCardGroup() {
+    const startIndex = (currentPage - 1) * cardsPerPage;
+    const endIndex = startIndex + cardsPerPage;
+    const displayedExoplanets = exoplanets.slice(startIndex, endIndex);
+
     const cardGroup = document.getElementsByClassName('card-group')[0];
+    cardGroup.innerHTML = '';
 
     if (!cardGroup) {
         console.error('Element with class "card-group" not found.');
         return;
     }
 
-    exoplanets.forEach(exoplanet => {
+    displayedExoplanets.forEach(exoplanet => {
         const card = document.createElement('div');
         card.classList.add('card');
         card.innerHTML = `
@@ -56,6 +61,31 @@ function populateCardGroup(exoplanets) {
 
         cardGroup.appendChild(card);
     });
+
+    renderPaginationButtons();
+}
+
+function goToPage(page) {
+    currentPage = page;
+    populateCardGroup();
+}
+
+function renderPaginationButtons() {
+    const paginationContainer = document.getElementsByClassName('pagination')[0];
+    if (!paginationContainer) {
+        console.error('Element with class "pagination" not found.');
+        return;
+    }
+
+    paginationContainer.innerHTML = '';
+
+    const totalPages = Math.ceil(exoplanets.length / cardsPerPage);
+    for (let i = 1; i <= totalPages; i++) {
+        const button = document.createElement('button');
+        button.textContent = i;
+        button.addEventListener('click', () => goToPage(i));
+        paginationContainer.appendChild(button);
+    }
 }
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -71,8 +101,8 @@ document.addEventListener("DOMContentLoaded", function() {
     fetch(queryURL)
     .then(response => response.text())
     .then(data => {
-        const exoplanets = parseExoplanets(data);
-        populateCardGroup(exoplanets);
+        exoplanets = parseExoplanets(data);
+        populateCardGroup();
     })
     .catch(error => {
         console.error('Error getting data from Exoplanet Archive:', error);

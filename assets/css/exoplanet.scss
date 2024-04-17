@@ -16,7 +16,7 @@ a {
 
 body {
     background: linear-gradient(to bottom right, #1D2948, #141D33, #0F1628, #050A16);
-    height: 100vh;
+    //SEM O WIDTH 100VH
 }
 
 .navBar {
@@ -80,6 +80,7 @@ background-color: transparent;
 .text-body-secondary {
     color: $card-subtitle-color !important;
 }
+
 
 
 
