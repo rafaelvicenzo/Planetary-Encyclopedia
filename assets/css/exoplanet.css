@@ -120,4 +120,7 @@ button {
   to {
     transform: rotate(360deg);
   }
+}
+.card-body img {
+  height: 50px;
 }/*# sourceMappingURL=exoplanet.css.map */
