@@ -51,11 +51,12 @@ function populateCardGroup() {
         card.classList.add('card');
         card.innerHTML = `
         <div class="card-body">
+            <img src="/img/terrestrial-kepler90.jpg" alt="">
             <h5 class="card-title">${exoplanet.name}</h5>
-            <p class="card-text">Radius: ${exoplanet.radius !== null ? exoplanet.radius + ' Earth radii' : 'Unknown'}</p>
+            <p class="card-text">Radius: ${exoplanet.radius !== null ? exoplanet.radius + ' Earth radius' : 'Unknown'}</p>
             <p class="card-text">Orbital Period: ${exoplanet.period !== null ? exoplanet.period + ' Earth days' : 'Unknown'}</p>
             <p class="card-text">Disposition: ${exoplanet.disposition !== null ? exoplanet.disposition : 'Unknown'}</p>
-            <p class="card-text">Surface Temperature: ${exoplanet.temperature !== null ? exoplanet.temperature + ' Kelvin' : 'Unknown'}</p>
+            <p class="card-text">Surface Temperature: ${exoplanet.temperature !== null ? (exoplanet.temperature - 273.15).toFixed(2) + ' Celsius' : 'Unknown'}</p>
         </div>
         `;
 
@@ -95,6 +96,17 @@ document.addEventListener("DOMContentLoaded", function() {
     const orderBy = 'koi_period';
     const format = 'ascii';
     const queryURL = `${baseURL}table=${table}&where=${encodeURIComponent(whereClause)}&order=${orderBy}&format=${format}`;
+    const loadingOverlay = document.querySelector('.loading-overlay');
+    const content = document.querySelector('.content');
+
+    loadingOverlay.style.display = 'flex';
+
+    setTimeout(() => {
+        loadingOverlay.style.display = 'none';
+        content.style.display = 'block';
+
+        populateCardGroup();
+    }, 2000)
 
     console.log(queryURL);
 
