@@ -78,4 +78,18 @@ main h1 {
   color: #fff;
   font-weight: 100;
   text-transform: uppercase;
+}
+
+#apodSection {
+  display: flex;
+  justify-content: center;
+  color: #767D98;
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+}
+
+#apod-img {
+  width: 50%;
+  display: block;
+  margin-bottom: 20px;
 }/*# sourceMappingURL=apod.css.map */

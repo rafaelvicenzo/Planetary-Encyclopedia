@@ -80,3 +80,19 @@ main h1 {
     font-weight: 100;
     text-transform: uppercase;
 }
+
+#apodSection {
+    display: flex;
+    justify-content: center;
+    //margin-top: 100px;
+    color: #767D98;
+    font-family: 'Inter',sans-serif;
+    font-weight: 300;
+}
+
+#apod-img {
+        width: 50%;
+        display: block;
+        margin-bottom: 20px;   
+}
+
