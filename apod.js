@@ -31,6 +31,6 @@ const today = new Date();
         const selectedDate = this.value;
         loadApodImage(selectedDate);
     });
-
+ 
 
 

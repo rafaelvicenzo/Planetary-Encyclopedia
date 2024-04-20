@@ -16,7 +16,7 @@ a {
 
 body {
     background: linear-gradient(to bottom right, #1D2948, #141D33, #0F1628, #050A16);
-    height: 100vh;
+    //HEIGHT 100vh
 }
 
 .navBar {
@@ -92,7 +92,12 @@ main h1 {
 
 #apod-img {
         width: 50%;
-        display: block;
         margin-bottom: 20px;   
 }
 
+#apod-text {
+    display: flex;
+    justify-content: center;
+    margin: 0 113px;
+    height: 100vh;
+}
