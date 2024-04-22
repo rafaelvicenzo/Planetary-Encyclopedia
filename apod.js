@@ -2,11 +2,9 @@
 
 const apiKEY = 'eDcGmc68SHznNH1e1w9QDxnEbcnu3x2JOJnINsa2';
 const dataSelect = document.getElementById('start');
-dataSelect.addEventListener('change', function () {
-    const selectDate = this.value;
 
-
-fetch(`https://api.nasa.gov/planetary/apod?api_key=${apiKEY}&date=${selectDate}`)
+function loadApodImage(date) {
+fetch(`https://api.nasa.gov/planetary/apod?api_key=${apiKEY}&date=${date}`)
 .then(response => { 
     return response.json()
 })
@@ -19,18 +17,17 @@ fetch(`https://api.nasa.gov/planetary/apod?api_key=${apiKEY}&date=${selectDate}`
 
     console.log(data);
 })
-.catch(error => { console.log(error)
-})
+.catch(error => { console.log(error)})
+};
+
+dataSelect.addEventListener('change', function () {
+    const selectedDate = this.value;
+    loadApodImage(selectedDate);
 });
 
 const today = new Date();
-    const todayISO = today.toISOString().split('T')[0];
-    loadApodImage(todayISO);
-
-    dataSelect.addEventListener('change', function () {
-        const selectedDate = this.value;
-        loadApodImage(selectedDate);
-    });
+const todayISO = today.toISOString().split('T')[0];
+loadApodImage(todayISO);
  
 
 

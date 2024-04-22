@@ -90,11 +90,21 @@ main h1 {
 #apod-img {
   width: 50%;
   margin-bottom: 20px;
+  margin: 60px 0;
 }
 
 #apod-text {
   display: flex;
   justify-content: center;
-  margin: 0 113px;
-  height: 100vh;
+  margin: 0 150px;
+  height: 50vh;
+  font-family: "Inter", sans-serif;
+  color: #ACAEB5;
+}
+
+#start {
+  padding: 10px;
+  border-radius: 7px;
+  border: none;
+  background-color: #cbceda;
 }/*# sourceMappingURL=apod.css.map */
