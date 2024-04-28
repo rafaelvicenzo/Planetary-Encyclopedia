@@ -15,7 +15,6 @@ a {
 
 body {
   background: linear-gradient(to bottom right, #1D2948, #141D33, #0F1628, #050A16);
-  height: 100vh;
 }
 
 .navBar {
@@ -60,4 +59,32 @@ a:hover:after {
   font-size: 20px;
   letter-spacing: 5px;
   cursor: pointer;
+}
+
+#map {
+  height: 600px;
+  margin: 0 104px 35px;
+  z-index: 1;
+}
+
+#app h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 64px 0;
+  font-family: "Inter", sans-serif;
+  color: #fff;
+  font-weight: 100;
+  text-transform: uppercase;
+}
+
+.leaflet-popup {
+  z-index: 1000;
+}
+
+.leaflet-layer,
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out,
+.leaflet-control-attribution {
+  filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
 }/*# sourceMappingURL=naturalEvent.css.map */
