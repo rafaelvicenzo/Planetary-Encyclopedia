@@ -90,9 +90,10 @@ a:hover:after {
 }
 
 .legend {
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px 30px 10px 10px;
   border-radius: 5px;
+  color: #fff;
 }
 
 .legend form {
@@ -105,4 +106,8 @@ a:hover:after {
 
 .legend label {
   font-size: 14px;
+}
+
+.legend img {
+  margin-right: 2px;
 }/*# sourceMappingURL=naturalEvent.css.map */

@@ -78,11 +78,11 @@ function createLegend(map) {
         div.innerHTML = `
         <form id="legend-form">
             <input type="checkbox" id="wildfires" name="category" value="wildfires">
-            <label for="wildfires">Wildfires</label><br>
+            <label for="wildfires"><img src="/assets/img/icons/campfire16x.png">Wildfires</label><br>
             <input type="checkbox" id="volcanoes" name="category" value="volcanoes">
-            <label for="volcanoes">Volcanoes</label><br>
+            <label for="volcanoes"><img src="/assets/img/icons/volcano16x.png">Volcanoes</label><br>
             <input type="checkbox" id="icebergs" name="category" value="icebergs">
-            <label for="icebergs">Icebergs</label><br>
+            <label for="icebergs"><img src="/assets/img/icons/iceberg16x.png">Icebergs</label><br>
         </form>
         `;
 
