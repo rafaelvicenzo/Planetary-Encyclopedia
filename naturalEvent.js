@@ -56,17 +56,18 @@ function addMarkers(map, data) {
 document.addEventListener('DOMContentLoaded', function () {
     map = L.map('map').setView([0, 0], 2);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
-
-    const eventsList = document.getElementById('events-list');
+    document.getElementById('loading-spinner').style.display = 'block';
 
     fetch('https://eonet.gsfc.nasa.gov/api/v2.1/events')
     .then(response => response.json())
     .then(data => {
         addMarkers(map, data);
         createLegend(map);
+        document.getElementById('loading-spinner').style.display = 'none';
     })
     .catch(error => {
         console.error('Error getting data from API:', error);
+        document.getElementById('loading-spinner').style.display = 'none';
     });
 });
 
