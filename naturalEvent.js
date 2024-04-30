@@ -1,59 +1,122 @@
-'use strict'
+'use strict';
+
+let map; 
+let markersByCategory = {};
+
+function addMarkers(map, data) {
+    data.events.forEach(event => {
+        if (event.geometries && event.geometries.length > 0) {
+            const [lon, lat] = event.geometries[0].coordinates;
+            let popupContent = `<b>${event.title}</b><br>${event.categories.length > 0 ? event.categories[0].title : 'N/A'}`;
+            let marker;
+
+            if (event.categories.some(cat => cat.title === 'Volcanoes')) {
+                const volcanoIcon = L.icon({
+                    iconUrl: '/assets/img/icons/volcano.png',
+                    iconSize: [38, 38],
+                    iconAnchor: [19, 38],
+                    popupAnchor: [0, -38]
+                });
+                marker = L.marker([lat, lon], { icon: volcanoIcon, category: 'volcanoes' });
+            } else if (event.categories.some(cat => cat.title === 'Wildfires')) {
+                const wildfireIcon = L.icon({
+                    iconUrl: '/assets/img/icons/campfire.png',
+                    iconSize: [38, 38],
+                    iconAnchor: [19, 38],
+                    popupAnchor: [0, -38]
+                });
+                marker = L.marker([lat, lon], { icon: wildfireIcon, category: 'wildfires' });
+            } else if (event.categories.some(cat => cat.title === 'Sea and Lake Ice')) {
+                const iceberg = L.icon({
+                    iconUrl: '/assets/img/icons/iceberg.png',
+                    iconSize: [38, 38],
+                    iconAnchor: [19, 38],
+                    popupAnchor: [0, -38]
+                });
+                marker = L.marker([lat, lon], { icon: iceberg, category: 'icebergs' });
+            } else {
+                marker = L.marker([lat, lon], { category: 'other' });
+            }
+
+            marker.bindPopup(popupContent, { zIndex: 1000 });
+
+            if (marker.options.category) {
+                if (!markersByCategory[marker.options.category]) {
+                    markersByCategory[marker.options.category] = [];
+                }
+                markersByCategory[marker.options.category].push(marker);
+            }
+
+            marker.addTo(map);
+        }
+    });
+}
+    
 
 document.addEventListener('DOMContentLoaded', function () {
-    const map = L.map('map').setView([0, 0], 2);
+    map = L.map('map').setView([0, 0], 2);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
-    const eventsList = document.getElementById('events-list');
 
+    const eventsList = document.getElementById('events-list');
 
     fetch('https://eonet.gsfc.nasa.gov/api/v2.1/events')
     .then(response => response.json())
     .then(data => {
-        data.events.forEach(event => {
-        if (event.geometries && event.geometries.length > 0) {
-        const [lon, lat] = event.geometries[0].coordinates;
-        let popupContent = `<b>${event.title}</b><br>${event.categories.length > 0 ? event.categories[0].title : 'N/A'}`;
-        let marker;
-        /*PERSONALIZED ICONS*/
-        if (event.categories.some(cat => cat.title === 'Volcanoes')) {
-            const volcanoIcon = L.icon({
-                iconUrl: '/assets/img/icons/volcano.png',
-                iconSize: [38, 38],
-                iconAnchor: [19, 38],
-                popupAnchor: [0, -38]
-            });
-            marker = L.marker([lat, lon], { icon: volcanoIcon });
-        } else if (event.categories.some(cat => cat.title === 'Wildfires')) {
-            const wildfireIcon = L.icon({
-                iconUrl: '/assets/img/icons/campfire.png',
-                iconSize: [38, 38],
-                iconAnchor: [19, 38],
-                popupAnchor: [0, -38]
-            });
-            marker = L.marker([lat, lon], { icon: wildfireIcon }).addTo(map)
-            .bindPopup(popupContent, {zIndex: 1000})
-            .openPopup();
-        } else if (event.categories.some(cat => cat.title === 'Sea and Lake Ice')) {
-            const iceberg = L.icon({
-                iconUrl: '/assets/img/icons/iceberg.png',
-                iconSize: [38, 38],
-                iconAnchor: [19, 38],
-                popupAnchor: [0, -38]
-            });
-            marker = L.marker([lat, lon], { icon: iceberg }).addTo(map)
-            .bindPopup(popupContent, {zIndex: 1000})
-            .openPopup();
-        } else {
-            marker = L.marker([lat, lon]);
-        }
+        addMarkers(map, data);
+        createLegend(map);
+    })
+    .catch(error => {
+        console.error('Error getting data from API:', error);
+    });
+});
 
-        marker.addTo(map)
-            .bindPopup(popupContent, { zIndex: 1000 })
-            .openPopup();
-    }
-});
-})
-.catch(error => {
-console.error('Error getting data from API:', error);
-});
-});
+function createLegend(map) {
+    const legend = L.control({ position: 'bottomleft' });
+
+    legend.onAdd = function () {
+        const div = L.DomUtil.create('div', 'legend');
+        div.innerHTML = `
+        <form id="legend-form">
+            <input type="checkbox" id="wildfires" name="category" value="wildfires">
+            <label for="wildfires">Wildfires</label><br>
+            <input type="checkbox" id="volcanoes" name="category" value="volcanoes">
+            <label for="volcanoes">Volcanoes</label><br>
+            <input type="checkbox" id="icebergs" name="category" value="icebergs">
+            <label for="icebergs">Icebergs</label><br>
+        </form>
+        `;
+
+        const checkboxes = div.querySelectorAll('input[name="category"]');
+        checkboxes.forEach((checkbox) => {
+            checkbox.addEventListener('change', () => {
+                filterMarkers();
+            });
+        });
+
+        return div;
+    };
+
+    legend.addTo(map);
+}
+
+function filterMarkers() {
+    console.log("Filtering markers...");
+    const checkboxes = document.querySelectorAll('input[name="category"]');
+    checkboxes.forEach((checkbox) => {
+        const category = checkbox.value;
+        console.log("Checkbox value:", category);
+        const markers = markersByCategory[category];
+        console.log("Markers:", markers);
+        if (markers) {
+            if (checkbox.checked) {
+                markers.forEach(marker => {
+                    marker.addTo(map);
+                });
+            } else {
+                markers.forEach(marker => {
+                    map.removeLayer(marker);
+                });
+            }
+        }
+    });
+}

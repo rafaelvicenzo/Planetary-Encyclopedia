@@ -87,4 +87,22 @@ a:hover:after {
 .leaflet-control-zoom-out,
 .leaflet-control-attribution {
   filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
+}
+
+.legend {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.legend form {
+  margin-top: 5px;
+}
+
+.legend input[type=radio] {
+  margin-right: 5px;
+}
+
+.legend label {
+  font-size: 14px;
 }/*# sourceMappingURL=naturalEvent.css.map */
