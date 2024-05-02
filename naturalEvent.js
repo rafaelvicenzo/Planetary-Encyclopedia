@@ -7,7 +7,7 @@ function addMarkers(map, data) {
     data.events.forEach(event => {
         if (event.geometries && event.geometries.length > 0) {
             const [lon, lat] = event.geometries[0].coordinates;
-            let popupContent = `<b>${event.title}</b><br>${event.categories.length > 0 ? event.categories[0].title : 'N/A'}`;
+            let popupContent = `<b>${event.title}</b><br>${event.categories.length > 0 ? event.categories[0].title : 'N/A'}<br>${event.geometries[0].date}`;
             let marker;
 
             if (event.categories.some(cat => cat.title === 'Volcanoes')) {
@@ -57,6 +57,10 @@ document.addEventListener('DOMContentLoaded', function () {
     map = L.map('map').setView([0, 0], 2);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
     document.getElementById('loading-spinner').style.display = 'block';
+    const southWest = L.latLng(-90, -180);
+    const northEast = L.latLng(90, 180);
+    const bounds = L.latLngBounds(southWest, northEast);
+    map.setMaxBounds(bounds);
 
     fetch('https://eonet.gsfc.nasa.gov/api/v2.1/events')
     .then(response => response.json())
