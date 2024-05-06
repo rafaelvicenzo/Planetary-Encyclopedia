@@ -61,3 +61,20 @@ a:hover:after {
   letter-spacing: 5px;
   cursor: pointer;
 }
+
+main h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 64px 0;
+  font-family: 'Inter', sans-serif;
+  color: #fff;
+  font-weight: 100;
+  text-transform: uppercase;
+}
+
+#aladin-lite-div {
+  width: 800px;
+  height: 600px;
+  margin: auto;
+}
