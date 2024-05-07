@@ -57,3 +57,5 @@ function displayObjectInfo(data, searchInput) {
 function displayError(message) {
     console.error(message);
 }
+
+

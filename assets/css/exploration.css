@@ -15,7 +15,6 @@ a {
 
 body {
   background: linear-gradient(to bottom right, #1D2948, #141D33, #0F1628, #050A16);
-  height: 100vh;
 }
 
 .navBar {
@@ -111,11 +110,12 @@ button {
   border-radius: 0px 10px 10px 0;
   border: none;
   padding: 3px;
+  cursor: pointer;
 }
 
 pre {
   color: #fff;
-  margin-top: 30px;
+  margin: 30px 0 0 30px;
 }
 
 .container {
