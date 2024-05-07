@@ -78,3 +78,47 @@ main h1 {
   height: 600px;
   margin: auto;
 }
+
+label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ACAEB5;
+  font-family: "Inter", sans-serif;
+}
+
+#search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+#search-input {
+  padding: 11px;
+  border-radius: 7px 0 0 7px;
+  border: none;
+  font-size: larger;
+}
+
+button img {
+  width: 15px;
+  height: 15px; 
+  padding: 9px;
+}
+
+button {
+  border-radius: 0px 10px 10px 0;
+  border: none;
+  padding: 3px;
+}
+
+pre {
+  color: #fff;
+  //margin-left: 93px;
+  margin-top: 30px;
+}
+
+.container {
+  display: flex;
+}

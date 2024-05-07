@@ -27,11 +27,16 @@
     <div id="stars"></div>
     <div id="stars1"></div>
     <label for="search-input">Enter the celestial object name:</label>
+    <div id="search">
     <input type="text" id="search-input">
-    <button onclick="searchObject()">Search</button>
+    <button onclick="searchObject()"><img src="/assets/img/icons/lupa-arredondada.png" style="width: 15px; height: 15px; padding: 10px;"></button>
+</div>
+    <div class="container">
     <div id="object-info"></div>
-    <div id="aladin-lite-div"></div>
+    <div id="aladin-lite-div" style="width:600px;height:600px;"></div>
+    </div>
 
+    <script type="text/javascript" src="https://aladin.cds.unistra.fr/AladinLite/api/v3/latest/aladin.js" charset="utf-8"></script>
     <script src="/exploration.js"></script>
 
     </main>

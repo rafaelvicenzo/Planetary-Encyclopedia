@@ -17,27 +17,38 @@ function searchObject() {
             }
         })
         .then(data => {
+            console.log("Data received:", data);
             const trimmedData = removeBibcodes(data);
-            displayObjectInfo(trimmedData);
+            displayObjectInfo(trimmedData, searchInput);
+            aladin.gotoObject(searchInput);
         })
         .catch(error => {
+            console.error("Error occurred:", error);
             displayError('An error occurred while searching for the object. Please try again later.');
         });
 }
 
 function removeBibcodes(data) {
-    const bibcodesRegex = /bibcode:\s*\d{4}[A-Za-z0-9\.\-\+]+\s*/g;
+    const bibcodesRegex = /Bibcodes\s+\d+-\d+\s+\(\)\s+\(\d+\):\s*([\s\S]*?)(?=\n\n|$)/g;
     const trimmedData = data.replace(bibcodesRegex, '');
     return trimmedData;
 }
 
-function displayObjectInfo(data) {
+function displayObjectInfo(data, searchInput) { 
     const infoDiv = document.createElement('div');
-    infoDiv.innerHTML = `<pre>${data}</pre>`;
+    const trimmedData = removeBibcodes(data);
+    infoDiv.innerHTML = `<pre>${trimmedData}</pre>`;
     const objectInfoContainer = document.getElementById('object-info');
     if (objectInfoContainer) {
         objectInfoContainer.innerHTML = '';
+        let aladin;
+        A.init.then(() => {
+            aladin = A.aladin('#aladin-lite-div', {survey: "P/DSS2/color", fov:1});
+            aladin.gotoObject(searchInput);
+        });     
+
         objectInfoContainer.appendChild(infoDiv);
+        objectInfoContainer.appendChild(aladin);
     } else {
         displayError('Object info container not found.');
     }
@@ -45,5 +56,4 @@ function displayObjectInfo(data) {
 
 function displayError(message) {
     console.error(message);
-    alert(message);
 }
