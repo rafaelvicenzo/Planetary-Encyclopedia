@@ -1,62 +1,77 @@
 @import url(/assets/css/fonts.css);
 @import url(/assets/css/stars.css);
 
-* {
+// Colors
+$color-primary: #fff;
+$color-secondary: #ACAEB5;
+$color-background: linear-gradient(to bottom right, #1D2948, #141D33, #0F1628, #050A16);
+$color-accent: #767D98;
+
+// Font
+$font-family: 'Inter', sans-serif;
+
+// Space
+$spacing-medium: 80px;
+$spacing-large: 50px;
+$spacing-xlarge: 120px;
+$spacing-nav: 100px;
+$spacing-btn: 130px;
+$spacing-side: 20px;
+
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 a {
     text-decoration: none;
-    color: #ACAEB5;
-    font-family: 'Inter', sans-serif;
+    color: $color-secondary;
+    font-family: $font-family;
     position: relative;
     padding: 0 5px;
+    &:after {
+        content: '';
+        position: absolute;
+        width: 0; 
+        height: 2px;
+        left: 0;
+        background-color: $color-primary;
+        border-radius: 10%;
+        bottom: -10px; 
+        transition: width 0.3s;
+    }
+    &:hover {
+        color: $color-primary;
+        &:after {
+            width: 100%;
+        }
+    }
 }
 
 body {
-    background: linear-gradient(to bottom right, #1D2948, #141D33, #0F1628, #050A16);
-    height: 100vh;
+    background: $color-background;
 }
 
 .navBar {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 100px;
-    margin-top: 30px;
-    margin-right: 20px;
-}
-
-a:after {
-    content: '';
-  position: absolute;
-  width: 0%; 
-  height: 2px;
-  left: 0;
-  background-color: #fff;
-  border-radius: 10%;
-  bottom: -10px; 
-  transition: 0.3s
-  }
-
-a:hover {
-    color: #fff;
-}
-
-a:hover:after {
-    width: 100%;
+    gap: $spacing-nav;
+    margin: 30px 0px 0 0;
 }
 
 .leftSide, .rightSide {
     display: flex;
     justify-content: left;
-    gap: 150px;
+    gap: $spacing-xlarge;
 }
 
 #title {
-    color: #fff;
-    font-family: 'Inter', sans-serif;
+    color: $color-primary;
+    font-family: $font-family;
     font-weight: 300;
     font-size: 20px;
     letter-spacing: 5px;
@@ -67,30 +82,30 @@ a:hover:after {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 80px;
-    color: #fff;
+    margin-top: $spacing-medium;
+    color: $color-primary;
     letter-spacing: 17px;
-    font-family: 'Inter', sans-serif;
+    font-family: $font-family;
     font-weight: 300;
 }
 
 .planetStats {
     display: flex;
     justify-content: center;
-    gap: 60px;
-    margin-top: 50px;
+    gap: $spacing-large;
+    margin-top: $spacing-large;
 }
 
 #infoTitle {
-    color: #767D98;
-    font-family: 'Inter', sans-serif;
+    color: $color-accent;
+    font-family: $font-family;
     font-weight: 400;
     letter-spacing: 1px;
 }
 
-.info1, .info2, .info3, .info4, .info5{
-    color: #fff;
-    font-family: 'Inter', sans-serif;
+.info1, .info2, .info3, .info4, .info5 {
+    color: $color-primary;
+    font-family: $font-family;
     font-weight: 300;
 }
 
@@ -99,7 +114,8 @@ a:hover:after {
     justify-content: center;
 }
 
-.noActiveted {
+.noActiveted,
+.noActivated {
     position: absolute;
     display: none;
 }
@@ -110,32 +126,21 @@ a:hover:after {
     background-color: transparent;
     border: none;
     cursor: pointer;
-    color: #fff;
+    color: $color-primary;
+    position: absolute;
+    bottom: $spacing-btn;
 }
 
 #left {
-    position: absolute;
-    bottom: 130px;
     left: 22rem;
 }
 
 #right {
-    position: absolute;
-    bottom: 130px;
     right: 20rem;
 }
 
-.noActivated {
-    position: absolute;
-    display: none;
-}
-
-#left:hover {
-    color: #ACAEB5;
-}
-
-#right:hover {
-    color: #ACAEB5;
+#left:hover, #right:hover {
+    color: $color-secondary;
 }
 
 .slideInRight {

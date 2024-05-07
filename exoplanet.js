@@ -51,7 +51,7 @@ function populateCardGroup() {
         card.classList.add('card');
         card.innerHTML = `
         <div class="card-body">
-            <img src="/assets/img/terrestrial-kepler90.jpg" alt="" style="height:100px">
+            <img src="/assets/img/MIT-No-Atmosphere-01-PRESS.jpg" alt="" style="height:100px;">
             <h5 class="card-title">${exoplanet.name}</h5>
             <p class="card-text">Radius: ${exoplanet.radius !== null ? exoplanet.radius + ' Earth radius' : 'Unknown'}</p>
             <p class="card-text">Orbital Period: ${exoplanet.period !== null ? exoplanet.period + ' Earth days' : 'Unknown'}</p>

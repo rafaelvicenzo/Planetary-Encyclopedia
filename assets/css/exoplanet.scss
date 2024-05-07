@@ -1,106 +1,100 @@
 @import url(/assets/css/fonts.css);
 @import url(/assets/css/stars.css);
 
-* {
+// Colors
+$color-primary: #fff;
+$color-secondary: #ACAEB5;
+$color-background: linear-gradient(to bottom right, #1D2948, #141D33, #0F1628, #050A16);
+$color-accent: #767D98;
+
+// Font
+$font-family: 'Inter', sans-serif;
+
+// Space
+$spacing-medium: 80px;
+$spacing-large: 50px;
+$spacing-xlarge: 120px;
+$spacing-nav: 100px;
+$spacing-btn: 130px;
+$spacing-side: 20px;
+
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 a {
     text-decoration: none;
-    color: #ACAEB5;
-    font-family: 'Inter', sans-serif;
+    color: $color-secondary;
+    font-family: $font-family;
     position: relative;
     padding: 0 5px;
+    &:after {
+        content: '';
+        position: absolute;
+        width: 0; 
+        height: 2px;
+        left: 0;
+        background-color: $color-primary;
+        border-radius: 10%;
+        bottom: -10px; 
+        transition: width 0.3s;
+    }
+    &:hover {
+        color: $color-primary;
+        &:after {
+            width: 100%;
+        }
+    }
 }
 
 body {
-    background: linear-gradient(to bottom right, #1D2948, #141D33, #0F1628, #050A16);
-    //SEM O WIDTH 100VH
+    background: $color-background;
 }
 
 .navBar {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 100px;
-    margin-top: 30px;
-    margin-right: 20px;
+    gap: $spacing-nav;
+    margin: 30px 0px 0 0;
 }
 
 .leftSide, .rightSide {
     display: flex;
     justify-content: left;
-    gap: 150px;
+    gap: $spacing-xlarge;
 }
 
 #title {
-    color: #fff;
-    font-family: 'Inter', sans-serif;
+    color: $color-primary;
+    font-family: $font-family;
     font-weight: 300;
     font-size: 20px;
     letter-spacing: 5px;
     cursor: pointer;
 }
 
-a:after {
-    content: '';
-  position: absolute;
-  width: 0%; 
-  height: 2px;
-  left: 0;
-  background-color: #fff;
-  border-radius: 10%;
-  bottom: -10px; 
-  transition: 0.3s
-  }
-
 a:hover {
-    color: #fff;
-}
-
-a:hover:after {
-    width: 100%;
-}
-
-$card-bg: #000;
-$card-title-color: #fff;
-$card-subtitle-color: #ACAEB5;
-$card-group-margin: 92px 90px;
-
-.card {
-background-color: rgba(0,0,0, 0.1);
-    
-}
-
-.card-text, .card-title {
-    color: $card-title-color;
-}
-
-.text-body-secondary {
-    color: $card-subtitle-color !important;
-}
-
-.card-group {
-    display: grid;
-    gap: 16px;
-    grid-template-columns: 1fr 1fr 1fr;
-    margin: 94px 50px 0 50px;
+    color: $color-primary;
 }
 
 .pagination {
     display: flex;
     justify-content: center;
     margin: 50px;
-    gap: 50px;
+    gap: $spacing-btn;
 }
 
 button {
     padding: 10px 15px;
     border-radius: 3px;
     border: none;
-    background-color: rgba(0,0,0, 0.5);
-    color: #fff;
+    background-color: $button-bg;
+    color: $color-primary;
 }
 
 .loading-overlay {
@@ -130,12 +124,25 @@ button {
     }
 }
 
-.card-body img {
-    height:50px
+.card {
+    background-color: $card-bg;
 }
 
+.card-text, .card-title {
+    color: $card-title-color;
+}
 
+.text-body-secondary {
+    color: $card-subtitle-color !important;
+}
 
+.card-group {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: $card-group-margin;
+}
 
-
-
+.card-body img {
+    height: 50px;
+}

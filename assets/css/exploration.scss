@@ -1,5 +1,19 @@
 @import url(/assets/css/fonts.css);
 @import url(/assets/css/stars.css);
+
+// Colors
+$color-primary: #fff;
+$color-secondary: #ACAEB5;
+$color-background: linear-gradient(to bottom right, #1D2948, #141D33, #0F1628, #050A16);
+
+//Space
+$spacing-nav: 100px;
+$spacing-side: 20px;
+$spacing-group: 92px;
+
+//Font
+$font-family: "Inter", sans-serif;
+
 * {
   margin: 0;
   padding: 0;
@@ -7,43 +21,41 @@
 
 a {
   text-decoration: none;
-  color: #ACAEB5;
-  font-family: "Inter", sans-serif;
+  color: $color-secondary;
+  font-family: 'Inter', sans-serif;
   position: relative;
   padding: 0 5px;
+  &:after {
+      content: '';
+      position: absolute;
+      width: 0%; 
+      height: 2px;
+      left: 0;
+      background-color: $color-primary;
+      border-radius: 10%;
+      bottom: -10px; 
+      transition: 0.3s;
+  }
+  &:hover {
+      color: $color-primary;
+      &:after {
+          width: 100%;
+      }
+  }
 }
 
 body {
-  background: linear-gradient(to bottom right, #1D2948, #141D33, #0F1628, #050A16);
+  background: $color-background;
+  // height: 100vh; Removido
 }
 
 .navBar {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 100px;
+  gap: $spacing-nav;
   margin-top: 30px;
-  margin-right: 20px;
-}
-
-a:after {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  left: 0;
-  background-color: #fff;
-  border-radius: 10%;
-  bottom: -10px;
-  transition: 0.3s;
-}
-
-a:hover {
-  color: #fff;
-}
-
-a:hover:after {
-  width: 100%;
+  margin-right: $spacing-side;
 }
 
 .leftSide, .rightSide {
@@ -53,12 +65,16 @@ a:hover:after {
 }
 
 #title {
-  color: #fff;
-  font-family: "Inter", sans-serif;
+  color: $color-primary;
+  font-family: 'Inter', sans-serif;
   font-weight: 300;
   font-size: 20px;
   letter-spacing: 5px;
   cursor: pointer;
+}
+
+a:hover {
+  color: $color-primary;
 }
 
 main h1 {
@@ -66,8 +82,8 @@ main h1 {
   justify-content: center;
   align-items: center;
   margin: 64px 0;
-  font-family: 'Inter', sans-serif;
-  color: #fff;
+  font-family: $font-family;
+  color: $color-primary;
   font-weight: 100;
   text-transform: uppercase;
 }
@@ -82,8 +98,8 @@ label {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ACAEB5;
-  font-family: "Inter", sans-serif;
+  color: $color-secondary;
+  font-family: $font-family;
 }
 
 #search {
@@ -114,7 +130,7 @@ button {
 }
 
 pre {
-  color: #fff;
+  color: $color-primary;
   margin: 30px 0 0 30px;
 }
 

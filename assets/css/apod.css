@@ -1,8 +1,11 @@
 @import url(/assets/css/fonts.css);
 @import url(/assets/css/stars.css);
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 a {
@@ -11,6 +14,23 @@ a {
   font-family: "Inter", sans-serif;
   position: relative;
   padding: 0 5px;
+}
+a:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  background-color: #fff;
+  border-radius: 10%;
+  bottom: -10px;
+  transition: width 0.3s;
+}
+a:hover {
+  color: #fff;
+}
+a:hover:after {
+  width: 100%;
 }
 
 body {
@@ -22,34 +42,13 @@ body {
   justify-content: center;
   align-items: center;
   gap: 100px;
-  margin-top: 30px;
-  margin-right: 20px;
-}
-
-a:after {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  left: 0;
-  background-color: #fff;
-  border-radius: 10%;
-  bottom: -10px;
-  transition: 0.3s;
-}
-
-a:hover {
-  color: #fff;
-}
-
-a:hover:after {
-  width: 100%;
+  margin: 30px 0px 0 0;
 }
 
 .leftSide, .rightSide {
   display: flex;
   justify-content: left;
-  gap: 150px;
+  gap: 120px;
 }
 
 #title {

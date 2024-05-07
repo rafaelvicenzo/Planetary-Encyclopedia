@@ -12,6 +12,23 @@ a {
   position: relative;
   padding: 0 5px;
 }
+a:after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  background-color: #fff;
+  border-radius: 10%;
+  bottom: -10px;
+  transition: 0.3s;
+}
+a:hover {
+  color: #fff;
+}
+a:hover:after {
+  width: 100%;
+}
 
 body {
   background: linear-gradient(to bottom right, #1D2948, #141D33, #0F1628, #050A16);
@@ -41,43 +58,8 @@ body {
   cursor: pointer;
 }
 
-a:after {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  left: 0;
-  background-color: #fff;
-  border-radius: 10%;
-  bottom: -10px;
-  transition: 0.3s;
-}
-
 a:hover {
   color: #fff;
-}
-
-a:hover:after {
-  width: 100%;
-}
-
-.card {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-.card-text, .card-title {
-  color: #fff;
-}
-
-.text-body-secondary {
-  color: #ACAEB5 !important;
-}
-
-.card-group {
-  display: grid;
-  gap: 16px;
-  grid-template-columns: 1fr 1fr 1fr;
-  margin: 94px 50px 0 50px;
 }
 
 .pagination {
@@ -121,6 +103,25 @@ button {
     transform: rotate(360deg);
   }
 }
+.card {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.card-text, .card-title {
+  color: #fff;
+}
+
+.text-body-secondary {
+  color: #ACAEB5 !important;
+}
+
+.card-group {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 94px 50px 0 50px;
+}
+
 .card-body img {
   height: 50px;
 }/*# sourceMappingURL=exoplanet.css.map */
