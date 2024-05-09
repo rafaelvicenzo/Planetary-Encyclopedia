@@ -152,4 +152,62 @@ body {
     transform: translateX(0);
     opacity: 1;
   }
+}
+#menu-button {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+#menu {
+  display: none;
+}
+
+#menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#menu ul li {
+  margin-bottom: 10px;
+}
+
+#menu ul li a {
+  text-decoration: none;
+  color: #767D98;
+  font-size: 18px;
+}
+
+@media screen and (max-width: 768px) {
+  #menu-button {
+    display: block;
+    position: absolute;
+    top: 27px;
+    left: 30px;
+    color: #767D98;
+    transition: transform 0.3s ease;
+  }
+  #menu {
+    display: block;
+    transition: opacity 0.3s ease;
+  }
+  .leftSide, .rightSide {
+    display: none;
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 10px 0 0;
+    gap: 10px;
+  }
+  #menu-button.open {
+    transform: rotate(90deg);
+  }
+  #menu ul li {
+    transition: opacity 0.3s ease;
+  }
 }/*# sourceMappingURL=style.css.map */
