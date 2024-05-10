@@ -1,13 +1,7 @@
 'use strict'
 
-document.getElementById('menu-button').addEventListener('click', function() {
-    var menu = document.getElementById('menu');
-    var menuButton = document.getElementById('menu-button');
-    if (menu.style.display === 'block') {
-        menu.style.display = 'none';
-        menuButton.classList.remove('open');
-    } else {
-        menu.style.display = 'block';
-        menuButton.classList.add('open');
-    }
+document.getElementById('menu-button').addEventListener('click', function(event) {
+    event.stopPropagation(); // Evita que o evento de clique propague para o documento
+    document.getElementById('menu').classList.toggle('open');
+    this.classList.toggle('open');
 });

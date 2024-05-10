@@ -211,8 +211,15 @@ body {
     }
 
     #menu {
-        display: block; 
-        transition: opacity 0.3s ease;
+        display: none; 
+        right: -200px;
+        transition: right 0.3s ease;
+        z-index: 1000;
+    }
+
+    #menu.open {
+        display: block;       
+        right: 0;
     }
 
     .leftSide, .rightSide {
@@ -226,16 +233,18 @@ body {
     justify-content: center;
     margin: 30px 10px 0 0;
     gap: 10px;
+    opacity: 0;
+    visibility: hidden;
+    }
+
+    #menu.open ul {
+        opacity: 1;
+        visibility: visible;
     }
 
     #menu-button.open {
         transform: rotate(90deg);
-    }
-
-    #menu ul li {
-        transition: opacity 0.3s ease;
-    }
-    
+    }    
 }
 
 
