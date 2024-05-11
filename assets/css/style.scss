@@ -115,6 +115,10 @@ body {
     justify-content: center;
 }
 
+article img {
+    height: 500px;
+}
+
 .noActiveted,
 .noActivated {
     position: absolute;
@@ -271,7 +275,23 @@ body {
     }
 
     article img {
-        height: 10px;
+        height: 300px;
+        margin-right: 18px;
+    }
+
+    #left, #right {
+        position: absolute;
+        padding: 0;
+    }
+
+    #left {
+        left: 23px;
+        bottom: -85px;
+    }
+
+    #right {
+        left: 332px;
+        bottom: -85px;
     }
 }
 
