@@ -1,5 +1,6 @@
 @import url(/assets/css/fonts.css);
 @import url(/assets/css/stars.css);
+@import url(/assets/css/viewport.css);
 *,
 *::before,
 *::after {
@@ -218,5 +219,25 @@ body {
   }
   #menu-button.open {
     transform: rotate(90deg);
+  }
+  .planetStats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .planetTitle {
+    margin-left: 20px;
+  }
+  .info1, .info2, .info3, .info4, .info5 {
+    display: flex;
+    justify-content: center;
+  }
+  #infoTitle {
+    display: flex;
+    justify-content: center;
+  }
+  article img {
+    height: 10px;
   }
 }/*# sourceMappingURL=style.css.map */
