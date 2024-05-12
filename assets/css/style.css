@@ -257,4 +257,116 @@ article img {
     left: 332px;
     bottom: -85px;
   }
+  .buttonsImage {
+    position: relative;
+    top: -176px;
+    left: -5px;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 991px) {
+  #menu-button {
+    display: block;
+    position: absolute;
+    top: 27px;
+    left: 30px;
+    color: #767D98;
+    transition: transform 0.3s ease;
+  }
+  #menu {
+    display: none;
+    right: -200px;
+    transition: right 0.3s ease;
+    z-index: 1000;
+  }
+  #menu.open {
+    display: block;
+    right: 0;
+  }
+  .leftSide, .rightSide {
+    display: none;
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 10px 0 0;
+    gap: 10px;
+    opacity: 0;
+    visibility: hidden;
+  }
+  #menu.open ul {
+    opacity: 1;
+    visibility: visible;
+  }
+  #menu-button.open {
+    transform: rotate(90deg);
+  }
+  #right {
+    right: 6rem;
+    bottom: 4rem;
+  }
+  #left {
+    bottom: 4rem;
+    left: 120px;
+  }
+}
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  #menu-button {
+    display: block;
+    position: absolute;
+    top: 27px;
+    left: 30px;
+    color: #767D98;
+    transition: transform 0.3s ease;
+  }
+  #menu {
+    display: none;
+    right: -200px;
+    transition: right 0.3s ease;
+    z-index: 1000;
+  }
+  #menu.open {
+    display: block;
+    right: 0;
+  }
+  .leftSide, .rightSide {
+    display: none;
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 10px 0 0;
+    gap: 10px;
+    opacity: 0;
+    visibility: hidden;
+  }
+  #menu.open ul {
+    opacity: 1;
+    visibility: visible;
+  }
+  #menu-button.open {
+    transform: rotate(90deg);
+  }
+  #right {
+    right: 11rem;
+    bottom: 4rem;
+  }
+  #left {
+    left: 13rem;
+    bottom: 4rem;
+  }
+}
+@media screen and (min-width: 1200px) and (max-width: 1350px) {
+  .navBar {
+    gap: 57px;
+  }
+  #left {
+    bottom: 4rem;
+  }
+  #right {
+    bottom: 4rem;
+  }
 }/*# sourceMappingURL=style.css.map */
