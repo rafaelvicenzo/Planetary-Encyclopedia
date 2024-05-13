@@ -58,4 +58,19 @@ function displayError(message) {
     console.error(message);
 }
 
+function isMobileDevice() {
+    return window.matchMedia("only screen and (max-width: 767px)").matches;
+}
+
+function displayMobileAlert() {
+    const isMobile = isMobileDevice();
+    if (isMobile) {
+        const confirmed = confirm('You are accessing this website from a mobile device. Do you want to access Sinbad Mobile?');
+        if (confirmed) {
+            window.location.href = 'https://simbad.u-strasbg.fr/mobile/';
+        }
+    }
+}
+
+window.onload = displayMobileAlert;
 
