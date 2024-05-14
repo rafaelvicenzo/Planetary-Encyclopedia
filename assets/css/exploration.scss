@@ -139,6 +139,10 @@ pre {
   display: flex;
 }
 
+.mobile-message {
+  display: none;
+}
+
 #menu-button {
   display: none; 
   font-size: 24px;
@@ -213,6 +217,23 @@ visibility: hidden;
 #menu-button.open {
   transform: rotate(90deg);
 }
+
+.mobile-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+  color: red;
+  font-family: $font-family;
+}
+
+body {
+  height: 100vh;
+}
+
+#aladin-lite-div {
+  display: none;
+}
 }
 
 @media screen and (min-width: 769px) and (max-width: 991px) {
@@ -264,6 +285,19 @@ visibility: hidden;
   body {
     height: 100vh;
   }
+
+  .mobile-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+    color: red;
+    font-family: $font-family;
+  }
+
+  #aladin-lite-div {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 992px) and (max-width: 1199px) {
@@ -311,6 +345,7 @@ visibility: hidden;
 #menu-button.open {
     transform: rotate(90deg);
 }
+
 }
 
 @media screen and (min-width: 1200px) and (max-width: 1350px) {

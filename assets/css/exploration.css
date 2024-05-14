@@ -123,6 +123,10 @@ pre {
   display: flex;
 }
 
+.mobile-message {
+  display: none;
+}
+
 #menu-button {
   display: none;
   font-size: 24px;
@@ -190,6 +194,20 @@ pre {
   #menu-button.open {
     transform: rotate(90deg);
   }
+  .mobile-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+    color: red;
+    font-family: "Inter", sans-serif;
+  }
+  body {
+    height: 100vh;
+  }
+  #aladin-lite-div {
+    display: none;
+  }
 }
 @media screen and (min-width: 769px) and (max-width: 991px) {
   #menu-button {
@@ -232,6 +250,17 @@ pre {
   }
   body {
     height: 100vh;
+  }
+  .mobile-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+    color: red;
+    font-family: "Inter", sans-serif;
+  }
+  #aladin-lite-div {
+    display: none;
   }
 }
 @media screen and (min-width: 992px) and (max-width: 1199px) {

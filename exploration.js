@@ -59,13 +59,15 @@ function displayError(message) {
 }
 
 function isMobileDevice() {
-    return window.matchMedia("only screen and (max-width: 767px)").matches;
+    return window.matchMedia("only screen and (max-width: 991px)").matches;
 }
 
 function displayMobileAlert() {
     const isMobile = isMobileDevice();
+    const inputElement = document.getElementById('search-input');
     if (isMobile) {
         const confirmed = confirm('You are accessing this website from a mobile device. Do you want to access Sinbad Mobile?');
+        inputElement.disabled = true;
         if (confirmed) {
             window.location.href = 'https://simbad.u-strasbg.fr/mobile/';
         }
