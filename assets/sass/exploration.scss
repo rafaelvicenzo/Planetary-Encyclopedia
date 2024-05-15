@@ -172,6 +172,11 @@ pre {
   font-size: 18px;
 }
 
+.click-here {
+  display: none;
+}
+
+
 @media screen and (max-width: 768px) {
 #menu-button {
   display: block; 
@@ -234,6 +239,23 @@ body {
 #aladin-lite-div {
   display: none;
 }
+
+.container {
+  flex-direction: column;
+}
+
+.click-here {
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  font-family: $font-family;
+}
+
+.container a {
+  color: #fff;
+  text-decoration: underline;
+}
+
 }
 
 @media screen and (min-width: 769px) and (max-width: 991px) {
@@ -297,6 +319,18 @@ body {
 
   #aladin-lite-div {
     display: none;
+  }
+
+  .click-here {
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    font-family: $font-family;
+  }
+  
+  .container a {
+    color: #fff;
+    text-decoration: underline;   
   }
 }
 
