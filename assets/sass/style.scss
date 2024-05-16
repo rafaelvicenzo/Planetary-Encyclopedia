@@ -275,10 +275,11 @@ article img {
     }
 
     article img {
-        height: 300px;
+        height: auto;
         margin-right: 18px;
+        width: 360px;
     }
-
+    
     #left, #right {
         position: absolute;
         padding: 0;

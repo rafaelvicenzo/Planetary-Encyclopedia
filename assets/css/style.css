@@ -242,8 +242,9 @@ article img {
     justify-content: center;
   }
   article img {
-    height: 300px;
+    height: auto;
     margin-right: 18px;
+    width: 360px;
   }
   #left, #right {
     position: absolute;
