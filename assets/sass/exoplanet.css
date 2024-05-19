@@ -1,0 +1,297 @@
+@import url(/assets/css/fonts.css);
+@import url(/assets/css/stars.css);
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: #ACAEB5;
+  font-family: "Inter", sans-serif;
+  position: relative;
+  padding: 0 5px;
+}
+a:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  background-color: #fff;
+  border-radius: 10%;
+  bottom: -10px;
+  transition: width 0.3s;
+}
+a:hover {
+  color: #fff;
+}
+a:hover:after {
+  width: 100%;
+}
+
+body {
+  background: linear-gradient(to bottom right, #1D2948, #141D33, #0F1628, #050A16);
+}
+
+.navBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  margin: 30px 0px 0 0;
+}
+
+.leftSide, .rightSide {
+  display: flex;
+  justify-content: left;
+  gap: 120px;
+}
+
+#title {
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  letter-spacing: 5px;
+  cursor: pointer;
+}
+
+a:hover {
+  color: #fff;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 50px;
+  gap: 130px;
+}
+
+button {
+  padding: 10px 15px;
+  border-radius: 3px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(15, 22, 40, 0.2);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #333;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.card {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.card-text, .card-title {
+  color: #fff;
+}
+
+.text-body-secondary {
+  color: #ACAEB5 !important;
+}
+
+.card-group {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 92px 90px;
+}
+
+.card-body img {
+  height: 50px;
+}
+
+#menu-button {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+#menu {
+  display: none;
+}
+
+#menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#menu ul li {
+  margin-bottom: 10px;
+}
+
+#menu ul li a {
+  text-decoration: none;
+  color: #767D98;
+  font-size: 18px;
+}
+
+@media screen and (max-width: 768px) {
+  #menu-button {
+    display: block;
+    position: absolute;
+    top: 27px;
+    left: 30px;
+    color: #767D98;
+    transition: transform 0.3s ease;
+    padding: 0;
+  }
+  #menu {
+    display: none;
+    right: -200px;
+    transition: right 0.3s ease;
+    z-index: 1000;
+  }
+  #menu.open {
+    display: block;
+    right: 0;
+  }
+  .leftSide, .rightSide {
+    display: none;
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 10px 0 0;
+    gap: 10px;
+    opacity: 0;
+    visibility: hidden;
+  }
+  #menu.open ul {
+    opacity: 1;
+    visibility: visible;
+  }
+  #menu-button.open {
+    transform: rotate(90deg);
+  }
+  .card-group {
+    grid-template-columns: 1fr;
+  }
+  .pagination {
+    gap: 4px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  #menu-button {
+    display: block;
+    position: absolute;
+    top: 27px;
+    left: 30px;
+    color: #767D98;
+    transition: transform 0.3s ease;
+    padding: 0;
+  }
+  #menu {
+    display: none;
+    right: -200px;
+    transition: right 0.3s ease;
+    z-index: 1000;
+  }
+  #menu.open {
+    display: block;
+    right: 0;
+  }
+  .leftSide, .rightSide {
+    display: none;
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 10px 0 0;
+    gap: 10px;
+    opacity: 0;
+    visibility: hidden;
+  }
+  #menu.open ul {
+    opacity: 1;
+    visibility: visible;
+  }
+  #menu-button.open {
+    transform: rotate(90deg);
+  }
+  .pagination {
+    gap: 45px;
+  }
+}
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  #menu-button {
+    display: block;
+    position: absolute;
+    top: 27px;
+    left: 30px;
+    color: #767D98;
+    transition: transform 0.3s ease;
+    padding: 0;
+  }
+  #menu {
+    display: none;
+    right: -200px;
+    transition: right 0.3s ease;
+    z-index: 1000;
+  }
+  #menu.open {
+    display: block;
+    right: 0;
+  }
+  .leftSide, .rightSide {
+    display: none;
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 10px 0 0;
+    gap: 10px;
+    opacity: 0;
+    visibility: hidden;
+  }
+  #menu.open ul {
+    opacity: 1;
+    visibility: visible;
+  }
+  #menu-button.open {
+    transform: rotate(90deg);
+  }
+  .pagination {
+    gap: 80px;
+  }
+}
+@media screen and (min-width: 1200px) and (max-width: 1350px) {
+  .navBar {
+    gap: 57px;
+  }
+}/*# sourceMappingURL=exoplanet.css.map */
