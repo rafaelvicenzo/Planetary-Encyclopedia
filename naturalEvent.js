@@ -12,7 +12,7 @@ function addMarkers(map, data) {
 
             if (event.categories.some(cat => cat.title === 'Volcanoes')) {
                 const volcanoIcon = L.icon({
-                    iconUrl: '/assets/img/icons/volcano.png',
+                    iconUrl: './assets/img/icons/volcano.png',
                     iconSize: [38, 38],
                     iconAnchor: [19, 38],
                     popupAnchor: [0, -38]
@@ -20,7 +20,7 @@ function addMarkers(map, data) {
                 marker = L.marker([lat, lon], { icon: volcanoIcon, category: 'volcanoes' });
             } else if (event.categories.some(cat => cat.title === 'Wildfires')) {
                 const wildfireIcon = L.icon({
-                    iconUrl: '/assets/img/icons/campfire.png',
+                    iconUrl: './assets/img/icons/campfire.png',
                     iconSize: [38, 38],
                     iconAnchor: [19, 38],
                     popupAnchor: [0, -38]
@@ -28,7 +28,7 @@ function addMarkers(map, data) {
                 marker = L.marker([lat, lon], { icon: wildfireIcon, category: 'wildfires' });
             } else if (event.categories.some(cat => cat.title === 'Sea and Lake Ice')) {
                 const iceberg = L.icon({
-                    iconUrl: '/assets/img/icons/iceberg.png',
+                    iconUrl: './assets/img/icons/iceberg.png',
                     iconSize: [38, 38],
                     iconAnchor: [19, 38],
                     popupAnchor: [0, -38]
